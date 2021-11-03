@@ -9,6 +9,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './services/login.service';
 import { RegisterService } from './services/register.service';
 import { MatInputModule } from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -20,6 +22,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -43,6 +46,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     MatToolbarModule,
     MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatCardModule,
     MatMenuModule,
     MatIconModule,

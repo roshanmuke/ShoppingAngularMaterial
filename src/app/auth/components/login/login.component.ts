@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { LoginService } from '../services/login.service';
+import { LoginService } from '../../services/login.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { Router } from '@angular/router';
-import { IRegistrationRes } from '../interface/registration';
+import { IRegistrationRes } from '../../interface/registration';
 
 @Component({
   selector: 'app-login',

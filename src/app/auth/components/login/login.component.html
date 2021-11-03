@@ -2,7 +2,7 @@
 
     <mat-card>
         <mat-card-content>
-            <form [formGroup]="loginForm" id="login-form" class="form">
+            <form [formGroup]="loginForm" id="login-form" class=" m-3 form">
                 <h1 class="text-center text-info">Login Form</h1>
                 <div>
                     <mat-form-field class="full-width-input">
@@ -25,7 +25,7 @@
                     </mat-form-field>
                 </div>
                 <div>
-                    <mat-form-field class="full-width-input">
+                    <mat-form-field class="full-width-input mb-5">
                         <mat-label>*Password</mat-label>
                         <input matInput type="text" formControlName="password" name="password" placeholder="Ex. 12345678">
                         
@@ -40,11 +40,9 @@
                                 </mat-error>
                             </div>
                             </mat-error>
-                        
-                
                     </mat-form-field>
                 </div>
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <button mat-raised-button color="accent" (click)="clearFun()"
                         class="float-left clearBtn">Clear</button>
                     <button mat-raised-button color="primary" type="submit" (click)="loginFun()" name="submited"
@@ -52,10 +50,7 @@
 
                 </div>
 
-                <div id="submit-link">
-
-                </div>
-                <div id="forgot-register" class="mt-20px">
+                <div  class="mt-5 p-3 float-left">
                     <a [routerLink]="['/auth/forgotpass']" class="btn text-primary  btn-md">Forgot Password</a>
                     | <a [routerLink]="['/auth/register']" class="btn text-primary btn-md">Registration</a>
                 </div>
