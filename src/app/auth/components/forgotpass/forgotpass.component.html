@@ -1,1 +1,36 @@
-<p>forgotpass works!</p>
+<div id="body">
+
+    <mat-card>
+        <mat-card-content>
+            <form [formGroup]="forgotForm" id="login-form" class=" mb-5 form">
+                <h1 class="text-center text-info">Login Form</h1>
+                <div>
+                    <mat-form-field class="full-width-input">
+                        <mat-label>*UserName</mat-label>
+                        <input matInput type="text" formControlName="email" name="email" placeholder="Ex. demo@example.com">
+
+                            <mat-error *ngIf="forgotForm.get('email').invalid && forgotForm.get('email').touched">
+                            <div>
+                                <mat-error *ngIf="forgotForm.get('email').hasError('required')">
+                                    <strong>Error!</strong> This field is required.
+                                </mat-error>
+
+                                <mat-error *ngIf="forgotForm.get('email').hasError('minlength')">
+                                    <strong>Error!</strong> This field is required minimum 4 Characters.
+                                </mat-error>
+                            </div>
+                            </mat-error>
+                        
+
+                    </mat-form-field>
+                </div>
+                <div class="form-group mt-5">
+                <a [routerLink]="['/auth/login']" class="btn float-left text-primary btn-md">Back to login</a>
+                    <button mat-raised-button color="primary" type="submit"  name="submited"
+                        class="float-right">Submit</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+</div>

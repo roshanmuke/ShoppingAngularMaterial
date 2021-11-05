@@ -10,6 +10,8 @@
     height: 400px;
     margin: 5em auto;
     text-align: center;
+    background-color: #EAEAEA;
+
   }
   
   mat-form-field {
@@ -18,11 +20,4 @@
 
   }
  
-  .errorShow{
-      color: rgb(192, 99, 99);
-    background-color:rgb(255, 192, 203);
-    border:1px solid pink;
-    border-radius: 5px;
-    height: 35px;
-    padding: 5px;
-  }
+  
