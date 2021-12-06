@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup ,NgForm, FormControl , Validators } from '@angular/forms';
+import { FormGroup , NgForm, FormControl , Validators } from '@angular/forms';
 import { RegisterService } from '../../services/register.service';
 import { Router } from '@angular/router';
 import { confirmPasswordValidator } from '../../validator/confirmPasswordValidator';
-import { IRegistrationRes } from "../../interface/registration";
+import { IRegistrationRes } from '../../interface/registration';
 
 @Component({
   selector: 'app-register',
@@ -11,32 +11,32 @@ import { IRegistrationRes } from "../../interface/registration";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
- 
-  registerForm:FormGroup;
 
-  errorMessage: string = "";
-  accessRole=[];
+  registerForm: FormGroup;
 
-  apiFlag: boolean = false;
-  apiSpinner: boolean = false;
-  apiSuccess: boolean = false;
-  constructor(private registerService:RegisterService, private router:Router) { }
+  errorMessage = '';
+  accessRole = [];
+
+  apiFlag = false;
+  apiSpinner = false;
+  apiSuccess = false;
+  constructor(private registerService: RegisterService, private router: Router) { }
 
   ngOnInit(): void {
-    this.registerForm= new FormGroup({
+    this.registerForm = new FormGroup({
       username: new FormControl('', [Validators.required , Validators.minLength(4)]),
       password: new FormControl('', [Validators.required , Validators.minLength(6)]),
       confirmPassword: new FormControl('', [Validators.required , Validators.minLength(6)]),
       email: new FormControl('', [Validators.required , Validators.minLength(6)]),
       dob: new FormControl('', [Validators.required , Validators.minLength(8)]),
-      number: new FormControl('', [Validators.required ,Validators.min(1000000000),
+      number: new FormControl('', [Validators.required , Validators.min(1000000000),
         Validators.max(9999999999)]),
       role: new FormControl('', [Validators.required , Validators.minLength(4)]),
-  
-     
-    }); 
 
-  
+
+    });
+
+
   }
 
   submitForm() {
@@ -57,19 +57,19 @@ export class RegisterComponent implements OnInit {
       }
     );
     console.log(this.registerForm);
-  
+
 }
   setValidator() {
-    this.registerForm.controls["confirmPassword"].setValidators([
+    this.registerForm.controls.confirmPassword.setValidators([
       Validators.required,
       Validators.minLength(6),
-      confirmPasswordValidator(this.registerForm.get("password").value),
+      confirmPasswordValidator(this.registerForm.get('password').value),
     ]);
   }
-  
+
   clearFun() {
     this.registerForm.reset();
   }
- 
+
 
 }

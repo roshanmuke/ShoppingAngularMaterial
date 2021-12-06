@@ -7,13 +7,13 @@ export class StorageService {
 
   constructor() { }
   setUser(user) {
-    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
   }
   getUser() {
-    return JSON.parse(localStorage.getItem("user"));
+    return JSON.parse(localStorage.getItem('user'));
   }
 
   removeUser(){
-    localStorage.removeItem("user");
+    localStorage.removeItem('user');
   }
 }

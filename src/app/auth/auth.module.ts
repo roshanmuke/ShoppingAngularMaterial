@@ -4,34 +4,28 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ForgotpassComponent } from './components/forgotpass/forgotpass.component';
 import { Routes, RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './services/login.service';
 import { RegisterService } from './services/register.service';
 import { MatInputModule } from '@angular/material/input';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule } from '@angular/material/table';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
+
 
 
 
 const routes: Routes = [
-  {path:'login',component:LoginComponent},
-  {path:'register',component:RegisterComponent},
-  {path:'forgotpass',component:ForgotpassComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'forgotpass', component: ForgotpassComponent},
 
-  {path: '',redirectTo: 'login',pathMatch: 'full'}
+  {path: '', redirectTo: 'login', pathMatch: 'full'}
 
 
 ];
@@ -44,21 +38,15 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    MatToolbarModule,
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCardModule,
-    MatMenuModule,
-    MatIconModule,
     MatButtonModule,
-    MatTableModule,
-    MatDividerModule,
-    MatSlideToggleModule,
     MatSelectModule,
     MatOptionModule,
+    MatCardModule,
     MatProgressSpinnerModule
     ],
-  providers:[LoginService, RegisterService]
+  providers: [LoginService, RegisterService]
 })
 export class AuthModule { }

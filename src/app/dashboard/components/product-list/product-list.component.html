@@ -1,1 +1,91 @@
-<p>product-list works!</p>
+<div>
+<table mat-table [dataSource]="dataSource"  matSort class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns; "></tr>
+    <!-- Position Column -->
+
+    <ng-container matColumnDef="Id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <strong>ID</strong> </th>
+      <td mat-cell *matCellDef="let element"> {{element.Product_ID}} </td>
+    </ng-container>
+  
+    <!-- Image Column -->
+    <ng-container matColumnDef="Images">
+        <th mat-header-cell *matHeaderCellDef > <strong>Images</strong> </th>
+        <td mat-cell *matCellDef="let element"> <img [src]="element.Product_URl" /></td>
+      </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Name</strong> </th>
+      <td mat-cell *matCellDef="let element"> {{element.Product_Name}} </td>
+    </ng-container>
+    
+    <!-- Color Column -->
+    <ng-container matColumnDef="Color">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Color</strong></th>
+      <td mat-cell *matCellDef="let element"  [ngStyle]="{ backgroundColor: element.Product_Color }" >  </td>
+    </ng-container>
+  
+    <!-- Size Column -->
+    <ng-container matColumnDef="Size">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Size</strong></th>
+      <td mat-cell *matCellDef="let element"> {{element.Product_Size}} </td>
+    </ng-container>
+    
+    <!-- Price Column -->
+    <ng-container matColumnDef="Price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> <strong>Price</strong> </th>
+        <td mat-cell *matCellDef="let element"> {{element.Product_Price | currency: "INR" }} </td>
+      </ng-container>
+
+      <!-- Edit Column -->
+    <ng-container matColumnDef="Edit" *ngIf="role==1">
+        <th mat-header-cell *matHeaderCellDef> <strong>Edit</strong> </th>
+        <td mat-cell *matCellDef="let element"> <a [routerLink]="['/dashboard/editProduct', 'edit', element.Product_ID]"
+            class="btn btn-primary">Edit</a> </td>
+      </ng-container>
+
+       <!-- View Column -->
+    <ng-container matColumnDef="View" *ngIf="role==1">
+        <th mat-header-cell *matHeaderCellDef> <strong>View</strong> </th>
+        <td mat-cell *matCellDef="let element"><a [routerLink]="['/dashboard/viewProduct','view',element.Product_ID]" 
+             class="btn btn-danger">View</a>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="View" *ngIf="role==2">
+        <th mat-header-cell *matHeaderCellDef> <strong>View</strong> </th>
+        <td mat-cell *matCellDef="let element"><a [routerLink]="['/dashboard/viewProduct','view',element.Product_ID]" 
+             class="btn btn-danger">View</a>
+        </td>
+      </ng-container>
+
+       <!-- AddToCard Column -->
+      <!-- <ng-container matColumnDef="AddToCard" *ngIf="role==2">
+        <th mat-header-cell *matHeaderCellDef> <strong>AddToCard</strong> </th>
+        <td mat-cell *matCellDef="let element">
+            <a [routerLink]="['/dashboard/viewProduct','view',element.Product_ID]" 
+             class="btn btn-danger">AddToCard</a>
+            <button type="button" class="btn btn-danger">AddToCard</button>
+        </td>
+      </ng-container> -->
+
+       <!-- Delete Column -->
+    <ng-container matColumnDef="Delete" *ngIf="role==1">
+        <th mat-header-cell *matHeaderCellDef> <strong>Delete</strong> </th>
+        <td mat-cell *matCellDef="let element"> <button type="button" (click)="deleteProduct(element.Product_ID ,element.Product_Name)"
+             class="btn btn-danger">Delete</button>
+        </td>
+      </ng-container>
+  
+    
+  </table>
+  <mat-paginator  
+  [pageSize]="5" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons ></mat-paginator>
+</div>
+  
+  

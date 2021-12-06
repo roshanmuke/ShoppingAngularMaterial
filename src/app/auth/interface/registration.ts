@@ -7,8 +7,8 @@ export interface IRegistrationParam {
     UserMobile: string;
     UserRole: number;
   }
-  
-  export interface IRegistrationRes {
+
+export interface IRegistrationRes {
     Data: null;
     ErrorCode: number;
     Message: string;

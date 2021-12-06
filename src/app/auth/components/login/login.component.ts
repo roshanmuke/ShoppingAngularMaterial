@@ -36,7 +36,7 @@ export class LoginComponent implements  OnInit {
         console.log(response);
         if (response.Status) {
           this.storageService.setUser(response.Data);
-          this.router.navigate(["/dashboard/dashboard"]);
+          this.router.navigate(['/dashboard/admin-dashboard']);
         } else {
           alert(response.Message);
         }
@@ -44,7 +44,7 @@ export class LoginComponent implements  OnInit {
       (error) => {
         console.log(error);
       }
-    )
+    );
     console.log(this.loginForm);
   }
   clearFun() {

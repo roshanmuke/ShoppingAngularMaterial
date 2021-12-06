@@ -1,1 +1,54 @@
-<p>dashboard works!</p>
+<mat-toolbar color="primary" fxLayoutAlign="space-between center">
+    <div>
+
+        <button mat-button color="primary" class="text-white" (click)="opened=!opened">
+            <mat-icon>dehaze</mat-icon>
+            <!--<mat-icon color="primary" (click)="opened=!opened"  class="material-icons text-white  f-5">
+    
+            dehaze
+            
+        </mat-icon> -->
+        </button>
+        <span>Home</span>
+        <span>Navbar</span>
+        <span>List</span>
+        <span mat-button [matMenuTriggerFor]="menu" fxLayoutAlign="end">
+            Menu
+        </span>
+        <mat-menu #menu="matMenu" fxLayoutAlign="end">
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+        </mat-menu>
+    </div>
+
+
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+
+    <mat-sidenav mode="side" [(opened)]="opened">
+        <h2 class="text-white text-center m-3">Shopping App</h2>
+        <hr class="bg-white m-3">
+        <mat-list>
+            <mat-list-item>
+                <a [routerLink]="['/dashboard/admin-dashboard']" class="text-white  float-right">Admin Dashboard <span
+                        class="material-icons float-right">
+                        chevron_right
+                    </span></a>
+            </mat-list-item>
+            <mat-list-item>
+                <a [routerLink]="['/dashboard/customer-dashboard']" class="text-white   float-right">Customer Dashboard
+                    <span class="material-icons ">
+                        chevron_right</span></a>
+            </mat-list-item>
+            <mat-list-item>
+                <a [routerLink]="['/dashboard/user']" class="text-white  float-right">User Dashboard <span
+                        class="material-icons ">
+                        chevron_right</span>
+                </a>
+            </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+    <app-admin-dashboard></app-admin-dashboard>
+</mat-sidenav-container>

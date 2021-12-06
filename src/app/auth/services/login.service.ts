@@ -6,9 +6,9 @@ import { FormGroup } from '@angular/forms';
 })
 export class LoginService {
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getLogin(form: FormGroup){
-    let data={UserEmail:form.value.username,UserPassword:form.value.password}
-    return this.httpClient.post('http://angular.pureecosoft.com/api/user/Login',data)
+    const data = {UserEmail: form.value.username, UserPassword: form.value.password};
+    return this.httpClient.post('http://angular.pureecosoft.com/api/user/Login', data);
   }}

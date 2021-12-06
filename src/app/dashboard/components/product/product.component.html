@@ -1,1 +1,112 @@
-<p>product works!</p>
+<div id="body">
+
+    <mat-card>
+        <mat-card-content>
+            <form [formGroup]="ProductForm">
+                 <h1 class="text-center text-info">{{title}} Product</h1> 
+                <div>
+                    <mat-form-field class="full-width-input">
+                        <mat-label>*Product Name :</mat-label>
+                        <input matInput type="text" formControlName="productName" name="productName" placeholder="Enter Product Name">
+
+                            <!-- <mat-error *ngIf="ProductForm.get('productName').invalid && ProductForm.get('productName').touched">
+                                <mat-error *ngIf="ProductForm.get('productName').hasError('required')">
+                                    <strong>Error!</strong> This field is required.
+                                </mat-error>
+
+                                <mat-error *ngIf="ProductForm.get('productName').hasError('minlength')">
+                                    <strong>Error!</strong> This field is required minimum 3 Characters.
+                                </mat-error>
+                            
+                            </mat-error> -->
+                        
+
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="full-width-input">
+                        <mat-label>*Product Size:</mat-label>
+                        <input matInput type="text" formControlName="productSize" name="productSize" placeholder="Enter Product Size">
+                        
+                            <!-- <mat-error *ngIf="ProductForm.get('productSize').invalid && ProductForm.get('productSize').touched">
+                                <mat-error *ngIf="ProductForm.get('productSize').hasError('required')">
+                                    <strong>Error!</strong> This field is required.
+                                </mat-error>
+                                <mat-error *ngIf="ProductForm.get('productSize').hasError('minlength')">
+                                    <strong>Error!</strong> This field is required minimum 3 Characters.
+                                </mat-error>
+                            </mat-error> -->
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="full-width-input">
+                        <mat-label>* Product Color:</mat-label>
+                        <input matInput type="text" formControlName="productColor" name="productColor"  placeholder="Enter Product Color">    
+                            <!-- <mat-error *ngIf="ProductForm.get('productColor').invalid && ProductForm.get('productColor').touched">
+                                <mat-error *ngIf="ProductForm.get('productColor').hasError('required')">
+                                    <strong>Error!</strong> This field is required.
+                                </mat-error>
+                                <mat-error *ngIf="ProductForm.get('productColor').hasError('minlength')">
+                                    <strong>Error!</strong> This field is required minimum 3 Characters.
+                                </mat-error>
+                            </mat-error> -->
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="full-width-input">
+                        <mat-label>* Product Price:</mat-label>
+                        <input matInput type="productPrice" formControlName="productPrice" name="productPrice" placeholder=" abc@gmail.com">
+                        
+                            <!-- <mat-error *ngIf="ProductForm.get('productPrice').invalid && ProductForm.get('productPrice').touched">
+                                <mat-error *ngIf="ProductForm.get('productPrice').hasError('required')">
+                                    <strong>Error!</strong> This field is required.
+                                </mat-error>
+                                <mat-error *ngIf="ProductForm.get('productPrice').hasError('minlength')">
+                                    <strong>Error!</strong> This field is required minimum 3 Characters.
+                                </mat-error>
+                            </mat-error> -->
+                    </mat-form-field>
+                </div>
+               
+               
+                <div>
+                    <mat-form-field class="full-width-input">
+                        <mat-label>* Product URL:</mat-label>
+                        <input matInput type="text" formControlName="productUrl" name="productUrl" placeholder="Enter the productUrl">
+                        
+                            <!--<mat-error *ngIf="ProductForm.get('productUrl').invalid && ProductForm.get('productUrl').touched">
+                                <div>
+                                <mat-error *ngIf="ProductForm.get('productUrl').hasError('required')">
+                                    <strong>Error!</strong> This field is required.
+                                </mat-error>
+                                <mat-error *ngIf="ProductForm.get('productUrl').hasError('minlength')">
+                                    <strong>Error!</strong> This field is required minimum 6 Characters.
+                                </mat-error> 
+                            </div>
+                            </mat-error> -->
+                    </mat-form-field>
+                </div>
+               
+
+                <div class="alert alert-danger" *ngIf="apiFlag && !apiSuccess">
+                    <strong>Error!</strong> {{ errorMessage }}
+                  </div>
+                  <div class="alert alert-success" *ngIf="apiFlag && apiSuccess">
+                    <strong>Success!</strong> Registration successfully !!
+                    <a [routerLink]="['/dashboard/admin-dashboard']">Back to Admin</a>
+                  </div>
+                <div class="form-group mt-1">
+                    <button mat-raised-button color="accent" (click)="clearFun()"
+                        class="float-left clearBtn">Clear</button>
+                   <button mat-raised-button color="primary" type="submit" (click)="submitForm()" name="submited"
+                        class="float-right">Submit</button>
+                        <!-- <mat-spinner></mat-spinner> -->
+                </div>   
+            </form>
+               
+            </mat-card-content>
+        </mat-card>
+    
+    </div>
